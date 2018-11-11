@@ -15,7 +15,7 @@ class CreateNewBulb : AppCompatActivity() {
         setContentView(R.layout.activity_create_new_bulb)
         val fireBaseDB : FirebaseDatabase = FirebaseDatabase.getInstance()
         val myRef = fireBaseDB.getReference("bulb-123")
-        //6uNK97cgz22jON5ZAyipFRuh5q5RBKwEgNLDnJdG
+  
         buttonSave.setOnClickListener {
             val nameB : EditText = findViewById(R.id.nameBulb)
             val pinMode : EditText = findViewById(R.id.pinMode)
