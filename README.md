@@ -1,4 +1,4 @@
-# Control your Bulbs with android app.
+# Bulbs are controlled by your android app.
 
 ###### Bulbs
 
