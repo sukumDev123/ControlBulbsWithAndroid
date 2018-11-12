@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ControlBulbsWithAndroid</string>
+    <string name="home_page">Home Page</string>
+    <string name="add_bulb_page">Add Bulb Page</string>
+    <string name="more_text">More</string>
+
+</resources>

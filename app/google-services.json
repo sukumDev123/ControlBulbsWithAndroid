@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1095133076333",
+    "firebase_url": "https://my-project-s-handler-bulbs.firebaseio.com",
+    "project_id": "my-project-s-handler-bulbs",
+    "storage_bucket": "my-project-s-handler-bulbs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095133076333:android:3448d31b4b569dfe",
+        "android_client_info": {
+          "package_name": "android.bulbs.sukumandroid.controlbulbswithandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095133076333-007nthvv88fre9euj40v86iu4roftsm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-RP2Dpn_wypxP7Kn6H-h6JI_DauDDenQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
