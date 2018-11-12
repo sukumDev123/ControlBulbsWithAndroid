@@ -22,7 +22,7 @@ class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
             holder.setStatusBulb(bulb.statusBulb)
             holder.setSwitch(bulb.statusBulb)
             holder.setOnSwitchListener(View.OnClickListener {
-                listener?.onSwichClick(bulb)
+                listener?.onBulbClick(bulb)
             })
         }
 
@@ -35,7 +35,7 @@ class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
         this.listener = listener
     }
     interface Listener {
-        fun onSwichClick(bulb : BulbsModel)
+        fun onBulbClick(bulb : BulbsModel)
     }
 
 }

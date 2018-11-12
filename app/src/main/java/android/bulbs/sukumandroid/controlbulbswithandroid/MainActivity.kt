@@ -1,22 +1,18 @@
 package android.bulbs.sukumandroid.controlbulbswithandroid
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Firebase.RealTimeDbViewModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Models.BulbsModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Views.CreateNewBulb
 import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.adpter.BulbListAdpter
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.content.ContextCompat
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
@@ -25,25 +21,41 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel : RealTimeDbViewModel
     private lateinit var adpter: BulbListAdpter
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        showLoading()
         adpter = BulbListAdpter()
         bulbRecyclerView?.layoutManager = LinearLayoutManager(this)
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()
-        adpter?.setListener(object : BulbListAdpter.Listener {
-            override fun onSwichClick(bulb: BulbsModel) {
-                val statusChage = if(bulb.statusBulb == 0) 1 else 0
-                viewModel?.updateStatusBulb(statusChage , bulb.key)
-            }
-
-        })
+        adpter?.setListener(updateStatusBulb)
+        adpter?.setListener(showDetailBulb)
 
     }
+    private val showDetailBulb = object : BulbListAdpter.Listener {
+        override fun onBulbClick(bulb: BulbsModel) {
+//            val
+        }
+
+    }
+    private val updateStatusBulb =
+        object : BulbListAdpter.Listener {
+            override fun onBulbClick(bulb: BulbsModel) {
+                val statusChage = if(bulb.statusBulb == 0) 1 else 0
+                 viewModel?.updateStatusBulb(statusChage , bulb.key)
+            }
+
+        }
+
 
     override fun onStart() {
         super.onStart()
+        navBottom()
+    }
+    fun navBottom() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -72,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.realTimeDBFireBase.observe(this , Observer<List<BulbsModel>> {
             bulbs ->
             updateBulb(bulbs)
+            showContent()
         })
     }
     private fun updateBulb(bulbs : List<BulbsModel>?) {
@@ -80,6 +93,15 @@ class MainActivity : AppCompatActivity() {
             adpter.notifyDataSetChanged()
         }
 
+    }
+    private fun showLoading() {
+        bulbRecyclerView?.visibility = View.GONE
+        progressBar?.visibility = View.VISIBLE
+    }
+
+    private fun showContent() {
+        bulbRecyclerView?.visibility = View.VISIBLE
+        progressBar?.visibility = View.GONE
     }
 
 

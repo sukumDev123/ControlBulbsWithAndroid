@@ -20,5 +20,8 @@ class BulbHolder( override val containerView: View) : RecyclerView.ViewHolder(co
     fun setOnSwitchListener(listener: View.OnClickListener) {
         swichBulb?.setOnClickListener(listener)
     }
+    fun viewThisItem(listener: View.OnClickListener) {
+        itemOn?.setOnClickListener(listener)
+    }
 
 }

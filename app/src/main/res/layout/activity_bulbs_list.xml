@@ -10,6 +10,7 @@
     android:layout_marginBottom="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemOn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/common_full_open_on_phone"
