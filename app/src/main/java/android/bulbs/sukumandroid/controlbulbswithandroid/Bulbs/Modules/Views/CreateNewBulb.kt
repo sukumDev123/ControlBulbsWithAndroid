@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_create_new_bulb.*
 
 class CreateNewBulb : AppCompatActivity() {
@@ -16,9 +17,9 @@ class CreateNewBulb : AppCompatActivity() {
         setContentView(R.layout.activity_create_new_bulb)
         viewModelFireBase = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
         buttonSave.setOnClickListener {
-            val nameB : EditText = findViewById(R.id.nameBulb)
-            val pinMode : EditText = findViewById(R.id.pinMode)
-            var newChild : EditText = findViewById(R.id.nameChild)
+            val nameB : TextInputEditText = findViewById(R.id.nameBulb)
+            val pinMode : TextInputEditText = findViewById(R.id.pinMode)
+            var newChild : TextInputEditText = findViewById(R.id.nameChild)
             val bulbModel = BulbsModel(nameB.text.toString() , 0 , pinMode.text.toString() , nameChild.text.toString())
             viewModelFireBase.addNewBulb(bulbModel , newChild.text.toString(), this)
         }

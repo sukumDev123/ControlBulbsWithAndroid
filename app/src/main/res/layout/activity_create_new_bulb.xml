@@ -7,88 +7,97 @@
     android:background="@color/colorBackground"
     tools:context=".Bulbs.Modules.Views.CreateNewBulb">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:layout_marginTop="32dp"
         android:background="@color/backJ"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/sample_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="Add My New Bulb To My home."
-            android:textColor="@color/fontColor"
-            android:textSize="24dp" />
-
-        <EditText
-            android:id="@+id/nameChild"
-
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:layout_marginTop="168dp"
-            android:background="#fff"
-            android:hint="Name Table For Ref."
-            android:padding="5dp"
+            android:layout_marginTop="32dp"
+
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sample_text" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/nameBulb"
+            <TextView
+                android:id="@+id/sample_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Add My New Bulb."
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="20sp" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="168dp"
-            android:background="#fff"
-            android:hint="Name Bulb."
-            android:padding="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameChild"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Name Table For Ref."
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameChild" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sample_text" />
 
-        <EditText
-            android:id="@+id/pinMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="#fff"
-            android:hint="Pin Mode."
-            android:padding="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameBulb" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameBulb"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name Bulb."
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
 
-        <Button
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameChild" />
 
-            android:id="@+id/buttonSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/colorPrimary"
-            android:text="Save"
-            android:textColor="@color/fontColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pinMode" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pinMode"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
 
-    </LinearLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pin Mode."
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameBulb" />
 
+            <Button
+
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary"
+                android:text="Save"
+                android:textColor="@color/fontColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pinMode" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

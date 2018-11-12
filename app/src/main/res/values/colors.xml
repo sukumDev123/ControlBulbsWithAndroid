@@ -5,5 +5,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorBackground">#6200ee</color>
     <color name="fontColor" > #fff </color>
-    <color name="backJ" >#44ffffff</color>
+    <color name="backJ" >#ffffff</color>
+    <color name="textOpenB" >#fff</color>
+    <color name="textCloseB" >#6200ee</color>
+    <color name="backGopenB" >#000</color>
+
+
 </resources>

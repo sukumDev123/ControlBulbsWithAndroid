@@ -19,6 +19,7 @@ class RealTimeDbViewModel : ViewModel(){
            firebaseDatabase.getReference(nameR).child(child).child("statusBulb").setValue(status)
        }
     }
+
     fun addNewBulb(bulb : BulbsModel , nameChild : String , viewAvtivity : AppCompatActivity) {
         bulb?.let {
             firebaseDatabase.getReference(nameR).child(nameChild).setValue(bulb).addOnSuccessListener {

@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Control The Light."
+        android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/fontColor"
         android:textSize="20dp"
