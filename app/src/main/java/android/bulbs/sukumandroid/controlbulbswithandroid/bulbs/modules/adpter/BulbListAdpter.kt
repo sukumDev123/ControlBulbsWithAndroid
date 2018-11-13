@@ -1,12 +1,11 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.adpter
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.adpter
 
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Models.BulbsModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.activity_bulbs_list.view.*
 
 class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
     private var bulbsList: List<BulbsModel>? = null

@@ -1,13 +1,12 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Firebase
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase
 
 import androidx.lifecycle.LiveData
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Models.BulbsModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.HashMap
 
 class RealTimeDBFireBaseLiveData(nameReference: String , fireBaseDb : FirebaseDatabase ) : LiveData<List<BulbsModel>>() {
     private val dbRef = fireBaseDb.getReference(nameReference)

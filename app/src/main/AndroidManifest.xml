@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Bulbs.Modules.Views.CreateNewBulb" >
+        <activity android:name=".bulbs.modules.views.CreateNewBulb" >
 
         </activity>
-        <activity android:name=".Bulbs.Modules.Views.BulbsListActivity"></activity>
+        <activity android:name=".bulbs.modules.views.BulbsListActivity"></activity>
     </application>
 
 </manifest>

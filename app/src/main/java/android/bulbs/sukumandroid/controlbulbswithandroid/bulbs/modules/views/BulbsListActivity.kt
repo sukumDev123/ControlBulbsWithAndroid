@@ -1,4 +1,4 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Views
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import androidx.appcompat.app.AppCompatActivity

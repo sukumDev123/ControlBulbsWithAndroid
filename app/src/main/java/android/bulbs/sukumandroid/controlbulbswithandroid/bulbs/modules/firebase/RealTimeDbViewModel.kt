@@ -1,13 +1,10 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Firebase
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase
 
-import android.app.Activity
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Models.BulbsModel
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Views.CreateNewBulb
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.MainActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class RealTimeDbViewModel : ViewModel(){

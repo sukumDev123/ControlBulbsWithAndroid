@@ -1,4 +1,4 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.adpter
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.adpter
 
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import android.graphics.Color

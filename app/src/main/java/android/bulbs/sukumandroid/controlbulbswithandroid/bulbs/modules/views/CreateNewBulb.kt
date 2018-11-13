@@ -1,11 +1,10 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Views
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Firebase.RealTimeDbViewModel
-import android.bulbs.sukumandroid.controlbulbswithandroid.Bulbs.Modules.Models.BulbsModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_create_new_bulb.*
