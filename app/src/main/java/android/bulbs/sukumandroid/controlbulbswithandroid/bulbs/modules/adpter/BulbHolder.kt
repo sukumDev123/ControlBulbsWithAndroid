@@ -19,14 +19,14 @@ class BulbHolder( override val containerView: View) : RecyclerView.ViewHolder(co
     }
     fun openOrNot(status : Int) {
         if(status == 0) {
-            itemOn?.imageView?.setImageResource(R.drawable.ic_lightbulb_outline_black_24dp)
-            itemOn?.textViewTitle?.setTextColor(Color.rgb(98, 0, 238))
-            itemOn?.setBackgroundColor(Color.WHITE)
+            cardViewBulb?.imageView?.setImageResource(R.drawable.ic_lightbulb_outline_black_24dp)
+            cardViewBulb?.textViewTitle?.setTextColor(Color.rgb(98, 0, 238))
+            cardViewBulb?.setBackgroundResource(R.drawable.shape_normal_f)
 
         } else {
-            itemOn?.imageView?.setImageResource(R.drawable.ic_lightbulb_outline_on)
-            itemOn?.textViewTitle?.setTextColor(Color.WHITE)
-            itemOn?.setBackgroundColor(Color.BLACK)
+            cardViewBulb?.imageView?.setImageResource(R.drawable.ic_lightbulb_outline_on)
+            cardViewBulb?.textViewTitle?.setTextColor(Color.WHITE)
+            cardViewBulb?.setBackgroundResource(R.drawable.shape_normal)
 
         }
     }

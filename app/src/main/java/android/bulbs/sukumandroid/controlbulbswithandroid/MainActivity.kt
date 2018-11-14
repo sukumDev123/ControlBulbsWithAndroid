@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         bulbRecyclerView?.layoutManager = GridLayoutManager(this , 2)
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()
-        adpter?.setListener(updateStatusBulb)
+        adpter.setListener(updateStatusBulb)
 
 
     }
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         object : BulbListAdpter.Listener {
             override fun onBulbClick(bulb: BulbsModel, view: View) {
                 val statusB = if(bulb.statusBulb == 0) 1 else 0
-                viewModel?.updateStatusBulb(statusB, bulb.key)
+                viewModel.updateStatusBulb(statusB, bulb.key)
             }
         }
 
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
         viewModel.realTimeDBFireBase.observe(this , Observer<List<BulbsModel>> {
             bulbs ->
-            updateBulb(bulbs )
+            updateBulb(bulbs)
             showContent()
         })
     }

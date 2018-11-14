@@ -17,7 +17,7 @@ class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
 
     override fun onBindViewHolder(holder: BulbHolder, position: Int) {
         val bulb = bulbsList?.get(position)
-        bulb?.let {bulb ->
+        bulb?.let {
             holder.setNameBulb(bulb.nameBulb)
             holder.openOrNot(bulb.statusBulb)
             holder.setOnSwitchListener(View.OnClickListener { view ->
