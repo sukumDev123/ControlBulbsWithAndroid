@@ -6,34 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
 
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
-
-    <TextView
-        android:id="@+id/simpleText"
+    <FrameLayout
+        android:id="@+id/frameLayout_bulb"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Control The Light."
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
+        android:layout_height="467dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/bulbRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleText">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
