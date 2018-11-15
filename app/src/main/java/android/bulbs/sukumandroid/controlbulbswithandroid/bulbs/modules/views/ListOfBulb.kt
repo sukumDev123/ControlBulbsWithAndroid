@@ -1,6 +1,7 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
 
+import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.adpter.BulbListAdpter
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
@@ -12,7 +13,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list_of_bulb.*
 
 
@@ -39,7 +39,7 @@ class ListOfBulb : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showLoading()
-        adpter = BulbListAdpter()
+        adpter = BulbListAdpter(MainActivity())
         bulbRecyclerView?.layoutManager = GridLayoutManager(context , 2)
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()

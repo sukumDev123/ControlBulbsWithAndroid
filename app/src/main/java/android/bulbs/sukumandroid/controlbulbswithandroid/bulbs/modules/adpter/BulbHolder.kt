@@ -17,6 +17,7 @@ class BulbHolder( override val containerView: View) : RecyclerView.ViewHolder(co
     fun setOnSwitchListener(listener: View.OnClickListener) {
         itemOn?.setOnClickListener(listener)
     }
+
     fun openOrNot(status : Int) {
         if(status == 0) {
             cardViewBulb?.imageView?.setImageResource(R.drawable.ic_lightbulb_outline_black_24dp)

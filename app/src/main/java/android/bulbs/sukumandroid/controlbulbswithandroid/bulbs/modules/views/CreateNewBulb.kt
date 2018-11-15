@@ -1,9 +1,8 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
+import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

@@ -1,11 +1,10 @@
-package android.bulbs.sukumandroid.controlbulbswithandroid
+package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
+import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun createShowFrag(block: Fragment ) {
         val transaction = mangerFrag?.beginTransaction()
-        transaction?.replace(R.id.frameLayout_bulb  , block)?.addToBackStack(null)?.commit()
+        transaction?.replace(R.id.frameLayout_bulb, block)?.addToBackStack(null)?.commit()
 
     }
 

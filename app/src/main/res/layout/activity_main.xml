@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
 
-    tools:context=".MainActivity"
+    tools:context=".bulbs.modules.views.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
     <FrameLayout
