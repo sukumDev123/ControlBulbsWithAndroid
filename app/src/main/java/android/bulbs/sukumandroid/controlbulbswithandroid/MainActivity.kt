@@ -19,8 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        showLoading()
-        progressBar?.visibility = View.GONE
+        createShowFrag(ListOfBulb())
 
 
 
@@ -61,14 +60,6 @@ class MainActivity : AppCompatActivity() {
         transaction?.replace(R.id.frameLayout_bulb  , block)?.addToBackStack(null)?.commit()
 
     }
-    private fun showLoading() {
-        bulbRecyclerView?.visibility = View.GONE
-        progressBar?.visibility = View.VISIBLE
-    }
 
-    private fun showContent() {
-        bulbRecyclerView?.visibility = View.VISIBLE
-        progressBar?.visibility = View.GONE
-    }
 
 }

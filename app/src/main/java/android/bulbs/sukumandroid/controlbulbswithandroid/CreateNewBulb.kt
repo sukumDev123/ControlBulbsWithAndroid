@@ -1,6 +1,7 @@
 package android.bulbs.sukumandroid.controlbulbswithandroid
 
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
@@ -8,23 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.fragment_create_new_bulb.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [CreateNewBulb.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [CreateNewBulb.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class CreateNewBulb : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var viewModelFireBase : RealTimeDbViewModel
@@ -40,13 +30,17 @@ class CreateNewBulb : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModelFireBase = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
-//        buttonSave.setOnClickListener {
-//            val nameB : TextInputEditText = findViewById(R.id.nameBulb)
-//            val pinMode : TextInputEditText = findViewById(R.id.pinMode)
-//            var newChild : TextInputEditText = findViewById(R.id.nameChild)
-//            val bulbModel = BulbsModel(nameB.text.toString() , 0 , pinMode.text.toString() , nameChild.text.toString())
-//            viewModelFireBase.addNewBulb(bulbModel , newChild.text.toString(), this)
-//        }
+        buttonSave.setOnClickListener {
+            val nameB : EditText? = getView()?.findViewById(R.id.nameChild)
+            val pinMode : EditText? = getView()?.findViewById(R.id.pinMode)
+            var newChild : EditText? = getView()?.findViewById(R.id.nameChild)
+            val bulbModel = BulbsModel(nameB?.text.toString() , 0 , pinMode?.text.toString() , nameChild?.text.toString())
+            viewModelFireBase.addNewBulb(bulbModel , newChild?.text.toString()).apply {
+                this.addOnSuccessListener {
+                    Toast.makeText(context ,"The Bulb is created success.", Toast.LENGTH_LONG ).show()
+                }
+            }
+        }
 
     }
 }

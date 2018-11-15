@@ -3,9 +3,11 @@ package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebas
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.MainActivity
 import android.content.Intent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.tasks.Task
 import com.google.firebase.database.FirebaseDatabase
 
 class RealTimeDbViewModel : ViewModel(){
@@ -19,12 +21,9 @@ class RealTimeDbViewModel : ViewModel(){
        }
     }
 
-    fun addNewBulb(bulb : BulbsModel? , nameChild : String , viewAvtivity : AppCompatActivity) {
-        bulb?.let {
-            firebaseDatabase.getReference(nameR).child(nameChild).setValue(bulb).addOnSuccessListener {
-                val intent = Intent(viewAvtivity , MainActivity::class.java)
-                viewAvtivity.startActivity(intent)
-            }
-        }
+    fun addNewBulb(bulb : BulbsModel? , nameChild : String ) : Task<Void>{
+
+        return firebaseDatabase.getReference(nameR).child(nameChild).setValue(bulb)
+
     }
 }
