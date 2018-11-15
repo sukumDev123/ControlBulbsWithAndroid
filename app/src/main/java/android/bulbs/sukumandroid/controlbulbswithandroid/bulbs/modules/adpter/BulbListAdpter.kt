@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_bulbs_list.view.*
 
 class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
     private var bulbsList: List<BulbsModel>? = null
@@ -17,7 +18,7 @@ class BulbListAdpter : RecyclerView.Adapter<BulbHolder>() {
 
     override fun onBindViewHolder(holder: BulbHolder, position: Int) {
         val bulb = bulbsList?.get(position)
-        bulb?.let {
+        bulb?.let {bulb ->
             holder.setNameBulb(bulb.nameBulb)
             holder.openOrNot(bulb.statusBulb)
             holder.setOnSwitchListener(View.OnClickListener { view ->

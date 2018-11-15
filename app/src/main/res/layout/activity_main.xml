@@ -12,7 +12,17 @@
     <FrameLayout
         android:id="@+id/frameLayout_bulb"
         android:layout_width="0dp"
+<<<<<<< HEAD
         android:layout_height="467dp"
+=======
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Control The Light."
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/fontColor"
+        android:textSize="20dp"
+>>>>>>> The card was selected success.
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

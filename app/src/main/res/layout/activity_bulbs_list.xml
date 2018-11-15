@@ -2,7 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD
     android:id="@+id/cardViewBulb"
+=======
+
+>>>>>>> The card was selected success.
     android:state_enabled="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,11 +20,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
+<<<<<<< HEAD
+
+        app:layout_constraintBottom_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle">
+=======
+        android:background="@color/textOpenB"
+>>>>>>> The card was selected success.
 
         app:layout_constraintBottom_toBottomOf="@+id/textViewTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle">
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> The card was selected success.
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
