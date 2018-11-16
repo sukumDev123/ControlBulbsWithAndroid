@@ -29,7 +29,7 @@ class MoreControl   {
     }
     fun getTimeToTimeOut(date : Date) =   Date(Date().time + Date().time - date.time).time
     fun setTimeStart(date : Long) : String {
-        var dateSelect = Date(Date().time + Date().time - Date(date).time).time - Date(Date(date).time).time
+        var dateSelect = Date().time - Date(Date(date).time).time
         if(dateSelect > 0) {
             dateSelect /= 1000
             var dateDouble : Double  = dateSelect.toDouble()

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetTime"
+    tools:layout_editor_absoluteY="81dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/linearF1"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearF2">
+
+        <TextView
+            android:id="@+id/openNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Set time to turn on light."
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editTextTimeOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Set Time for turn on." />
+
+        <Button
+            android:id="@+id/setTimeOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Set time."
+            android:textColor="@color/fontColor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearF2"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/turnOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="8dp"
+            android:text="Set time to turn off light."
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editTextTimeOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Set Time for turn off." />
+
+        <Button
+            android:id="@+id/setTimeOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Set time."
+            android:textColor="@color/fontColor" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

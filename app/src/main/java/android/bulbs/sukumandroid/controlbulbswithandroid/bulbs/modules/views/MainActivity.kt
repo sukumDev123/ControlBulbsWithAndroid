@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
                     createShowFrag(CreateNewBulb())
                     true
                 }
+                R.id.item_recent3 -> {
+                    createShowFrag(MoreOption())
+                    true
+                }
 
                 else -> false
             }

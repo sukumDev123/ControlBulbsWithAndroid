@@ -39,7 +39,7 @@ class ListOfBulb : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showLoading()
-        adpter = BulbListAdpter(MainActivity())
+        adpter = BulbListAdpter()
         bulbRecyclerView?.layoutManager = GridLayoutManager(context , 2)
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()
