@@ -16,8 +16,7 @@ import kotlinx.android.synthetic.main.fragment_create_new_bulb.*
 
 class CreateNewBulb : Fragment() {
     // TODO: Rename and change types of parameters
-    private lateinit var viewModelFireBase : RealTimeDbViewModel
-
+    private lateinit var viewModel: RealTimeDbViewModel
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -28,15 +27,15 @@ class CreateNewBulb : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModelFireBase = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
         buttonSave.setOnClickListener {
-            val nameB : EditText? = getView()?.findViewById(R.id.nameChild)
-            val pinMode : EditText? = getView()?.findViewById(R.id.pinMode)
-            var newChild : EditText? = getView()?.findViewById(R.id.nameChild)
-            val bulbModel = BulbsModel(nameB?.text.toString() , 0 , pinMode?.text.toString() , nameChild?.text.toString())
-            viewModelFireBase.addNewBulb(bulbModel , newChild?.text.toString()).apply {
+            val nameB: EditText? = getView()?.findViewById(R.id.nameChild)
+            val pinMode: EditText? = getView()?.findViewById(R.id.pinMode)
+            var newChild: EditText? = getView()?.findViewById(R.id.nameChild)
+            val bulbModel = BulbsModel(nameB?.text.toString(), 0, pinMode?.text.toString(), nameChild?.text.toString())
+            viewModel.addNewBulb(bulbModel, newChild?.text.toString()).apply {
                 this.addOnSuccessListener {
-                    Toast.makeText(context ,"The Bulb is created success.", Toast.LENGTH_LONG ).show()
+                    Toast.makeText(context, "The Bulb is created success.", Toast.LENGTH_LONG).show()
                 }
             }
         }

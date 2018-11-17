@@ -25,6 +25,14 @@ class RealTimeDbViewModel : ViewModel(){
        }
     }
 
+    fun setTimeToBulb(child: String,   openOrOff : String, openOrOffV: Boolean ,  timeType: String ,time: Long) : Task<Void> {
+        val firebaseProcess = firebaseDatabase.getReference(nameR).child(child)
+        return firebaseProcess.child(openOrOff).setValue(openOrOffV).addOnSuccessListener {
+            firebaseProcess.child(timeType).setValue(time)
+        }
+
+    }
+
     fun addNewBulb(bulb : BulbsModel? , nameChild : String ) : Task<Void>{
 
         return firebaseDatabase.getReference(nameR).child(nameChild).setValue(bulb)

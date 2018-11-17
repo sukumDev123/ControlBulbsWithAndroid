@@ -16,17 +16,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_list_of_bulb.*
 
 
-
-
 /**
  * A simple [Fragment] subclass.
  *
  */
 class ListOfBulb : Fragment() {
-    private lateinit var viewModel : RealTimeDbViewModel
+    private lateinit var viewModel: RealTimeDbViewModel
     private lateinit var adpter: BulbListAdpter
-
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,35 +36,37 @@ class ListOfBulb : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         showLoading()
         adpter = BulbListAdpter()
-        bulbRecyclerView?.layoutManager = GridLayoutManager(context , 2)
+        bulbRecyclerView?.layoutManager = GridLayoutManager(context, 2)
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()
         adpter.setListener(updateStatusBulb)
 
     }
+
     private val updateStatusBulb =
             object : BulbListAdpter.Listener {
                 override fun onBulbClick(bulb: BulbsModel, view: View) {
-                    val statusB = if(bulb.statusBulb == 0) 1 else 0
+                    val statusB = if (bulb.statusBulb == 0) 1 else 0
                     viewModel.updateStatusBulb(statusB, bulb.key)
                 }
             }
 
     private fun getObserFromFireBase() {
         viewModel = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
-        viewModel.realTimeDBFireBase.observe(this , Observer<List<BulbsModel>> {
-            bulbs ->
+        viewModel.realTimeDBFireBase.observe(this, Observer<List<BulbsModel>> { bulbs ->
             updateBulb(bulbs)
             showContent()
         })
     }
-    private fun updateBulb(bulbs : List<BulbsModel>?) {
+
+    private fun updateBulb(bulbs: List<BulbsModel>?) {
         bulbs?.let {
             adpter.setBulbList(bulbs)
             adpter.notifyDataSetChanged()
         }
 
     }
+
     private fun showLoading() {
         bulbRecyclerView?.visibility = View.GONE
         progressBar?.visibility = View.VISIBLE

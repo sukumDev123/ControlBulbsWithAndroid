@@ -14,36 +14,42 @@ import java.util.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
+
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun testSetTimeSecond() {
+       assertEquals(5000 , MoreControl().setTimeSecond("5s."))
     }
     @Test
-    fun testShowDataNow(){
-        assertEquals(
-                123,
-                123
-        )
+    fun testSetTimeMin(){
+        assertEquals(60000 , MoreControl().setTimeMin("1m."))
+    }
+    @Test
+    fun setTimeOnS() {
+        assertEquals(1000 , MoreControl().setTimeOn("1s"))
+    }
+    @Test
+    fun setTimeOnS2() {
+        assertEquals(1000 , MoreControl().setTimeOn("1s."))
+    }
+    @Test
+    fun setTimeOnM() {
+        assertEquals(60000 , MoreControl().setTimeOn("1m"))
 
     }
     @Test
-    fun testTimeOfDateString() {
-        val date_Time = Date(1542273708589)
-        val changeTest = MoreControl().setTimeOpen(date_Time)
-        assertEquals("0 s." , changeTest)
-    }
-    @Test
-    fun testTimePlusTest() {
-        val date_Time = Date(1542272212888)
-        val testTimeValue = MoreControl().setTimeStart(date_Time)
-        assertEquals("0 s." , testTimeValue)
+    fun setTimeOnM2() {
+        assertEquals(60000 , MoreControl().setTimeOn("1m."))
 
     }
     @Test
-    fun testTime() {
-        val dateTime = MoreControl().getTimeToTimeOut(Date(1542272212888))
-        assertEquals("1" , dateTime)
-    }
+    fun setTimeOnH() {
+        assertEquals(3600000 , MoreControl().setTimeOn("1h"))
 
+    }
+    @Test
+    fun setTimeOnH2() {
+        assertEquals(3600000 , MoreControl().setTimeOn("1h."))
+
+    }
 
 }
