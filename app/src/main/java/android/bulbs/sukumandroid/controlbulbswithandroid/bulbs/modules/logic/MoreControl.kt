@@ -32,7 +32,7 @@ class MoreControl {
         }
         return "0 s"
     }
-    private fun checkTypeTime(time: String): Boolean
+    fun checkTypeTime(time: String): Boolean
             = Regex("[0-9]+[s,m,h][.]*").matches(time)
 
     fun setTimeSecond(time : String) : Long
