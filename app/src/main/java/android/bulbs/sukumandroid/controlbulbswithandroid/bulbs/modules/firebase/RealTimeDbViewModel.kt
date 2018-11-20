@@ -15,6 +15,7 @@ class RealTimeDbViewModel : ViewModel(){
            val firebaseProcess = firebaseDatabase.getReference(nameR).child(child)
            firebaseProcess.child("statusBulb").setValue(status).addOnSuccessListener {
                if(status == 1) {
+                   firebaseProcess.child("")
                    firebaseProcess.child("createAt").setValue(Date().time)
                } else {
                    firebaseProcess.child("createAt").setValue(0)

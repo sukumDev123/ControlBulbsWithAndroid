@@ -6,6 +6,7 @@ import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.adpter.B
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.fragment_list_of_bulb.*
+import java.util.*
 
 
 /**
@@ -23,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_list_of_bulb.*
 class ListOfBulb : Fragment() {
     private lateinit var viewModel: RealTimeDbViewModel
     private lateinit var adpter: BulbListAdpter
-
+    private var bulbData: List<BulbsModel>? = listOf()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,6 +33,7 @@ class ListOfBulb : Fragment() {
 
         return inflater.inflate(R.layout.fragment_list_of_bulb, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,6 +43,12 @@ class ListOfBulb : Fragment() {
         bulbRecyclerView?.adapter = adpter
         getObserFromFireBase()
         adpter.setListener(updateStatusBulb)
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        updateBulbTime()
 
     }
 
@@ -54,6 +63,8 @@ class ListOfBulb : Fragment() {
     private fun getObserFromFireBase() {
         viewModel = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
         viewModel.realTimeDBFireBase.observe(this, Observer<List<BulbsModel>> { bulbs ->
+            bulbData = bulbs
+
             updateBulb(bulbs)
             showContent()
         })
@@ -75,6 +86,22 @@ class ListOfBulb : Fragment() {
     private fun showContent() {
         bulbRecyclerView?.visibility = View.VISIBLE
         progressBar?.visibility = View.GONE
+    }
+
+    private fun updateBulbTime() {
+        val mHandler = Handler()
+        val mTimer = Timer()
+        mTimer.schedule(object : TimerTask() {
+            override fun run() {
+                bulbData?.let {
+//                    adpter.setBulbList(it)
+                    mHandler.post{
+                        updateBulb(it)
+
+                    }
+                }
+            }
+        }, 0, 1000)
     }
 
 }

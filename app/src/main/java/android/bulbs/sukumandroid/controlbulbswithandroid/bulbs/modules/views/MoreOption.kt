@@ -25,7 +25,7 @@ import java.util.*
 class MoreOption : Fragment() {
     private lateinit var viewModel: RealTimeDbViewModel
     private lateinit var adpter2: BulbListAdpter2
-    private lateinit var bulbListData: List<BulbsModel>
+    private var bulbListData: List<BulbsModel>? = listOf()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -52,9 +52,9 @@ class MoreOption : Fragment() {
         adpter2.setListener(clickForShowDetail)
     }
 
-    private val  clickForShowDetail = object  : BulbListAdpter2.Listener {
+    private val clickForShowDetail = object : BulbListAdpter2.Listener {
         override fun onClick(bulbsModel: BulbsModel) {
-            fragmentManager?.beginTransaction()?.replace(R.id.frameLayout_bulb , SetTime.newInstance(bulbsModel))?.commit()
+            fragmentManager?.beginTransaction()?.replace(R.id.frameLayout_bulb, SetTime.newInstance(bulbsModel))?.addToBackStack(null)?.commit()
         }
 
     }
@@ -65,8 +65,8 @@ class MoreOption : Fragment() {
 
         mTimer.schedule(object : TimerTask() {
             override fun run() {
-                bulbListData.let {
-                    mHandler.post{
+                bulbListData?.let {
+                    mHandler.post {
                         showTimeis(it)
                     }
                 }
@@ -80,6 +80,7 @@ class MoreOption : Fragment() {
         viewModel = ViewModelProviders.of(this).get(RealTimeDbViewModel::class.java)
         viewModel.realTimeDBFireBase.observe(this, Observer<List<BulbsModel>> { bulbs ->
             bulbListData = bulbs
+            showTimeis(bulbs)
             showContent()
         })
 
@@ -94,6 +95,7 @@ class MoreOption : Fragment() {
         }
 
     }
+
     private fun showLoading() {
         recyclerViewDetailPage?.visibility = View.GONE
         progressBar2?.visibility = View.VISIBLE
@@ -103,7 +105,6 @@ class MoreOption : Fragment() {
         recyclerViewDetailPage?.visibility = View.VISIBLE
         progressBar2?.visibility = View.GONE
     }
-
 
 
 }

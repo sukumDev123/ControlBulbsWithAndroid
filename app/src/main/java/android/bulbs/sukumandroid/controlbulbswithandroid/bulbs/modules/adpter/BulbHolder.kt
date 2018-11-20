@@ -1,6 +1,8 @@
 package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.adpter
 
+import android.annotation.SuppressLint
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.logic.MoreControl
 import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
@@ -16,6 +18,21 @@ class BulbHolder( override val containerView: View) : RecyclerView.ViewHolder(co
 
     fun setOnSwitchListener(listener: View.OnClickListener) {
         itemOn?.setOnClickListener(listener)
+    }
+    fun setCoutnDownTime(time: Long?, typeTime : String?, openOrClose : Int? ) {
+        openOrClose?.let {
+            if(it == 0) {
+                countDownTime.setTextColor(Color.BLACK)
+            }else {
+                countDownTime.setTextColor(Color.WHITE)
+
+            }
+        }
+        time?.let {
+            typeTime?.let {
+                countDownTime?.text = MoreControl().setCountDownTimeStart(time , typeTime )
+            }
+        }
     }
     fun openOrNot(status : Int) {
         if(status == 0) {

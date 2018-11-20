@@ -5,8 +5,10 @@ import android.annotation.SuppressLint
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.firebase.RealTimeDbViewModel
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.logic.MoreControl
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.models.BulbsModel
+import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views.ListOfBulb
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views.MainActivity
 import android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views.MoreOption
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,6 +21,9 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_set_time.*
 import java.io.Serializable
 import java.util.*
+import androidx.core.app.NotificationCompat.getCategory
+
+
 
 
 class SetTime : Fragment() {
@@ -40,6 +45,7 @@ class SetTime : Fragment() {
         }
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_set_time, container, false)
@@ -58,9 +64,12 @@ class SetTime : Fragment() {
 
     }
 
-    @SuppressLint("ResourceType")
+
+
     private fun setTimeOnFunc(key: String?) {
         setTimeOn?.setOnClickListener {
+            setTimeOn?.text = "You clicked..."
+            setTimeOn?.isEnabled = false
             editTextTimeOn?.let {
                 val editText = editTextTimeOn.text.toString()
                 if (MoreControl().checkTypeTime(editText)) {
@@ -68,12 +77,17 @@ class SetTime : Fragment() {
                     key?.let {
                         viewModel.setTimeToBulb(key, "setOpen", true, "timeStart", timeLong).addOnSuccessListener {
                             editTextTimeOn.setText("")
+
                             Toast.makeText(activity, "Success.", Toast.LENGTH_SHORT)
                             editTextTimeOn.onEditorAction(EditorInfo.IME_ACTION_DONE)
-                            fragmentManager?.beginTransaction()?.replace(R.layout.fragment_more_option , MoreOption())?.commit()
+                            replateFragment(ListOfBulb())
+
+
                         }
                     }
                 } else {
+                    setTimeOn?.text = "Set Time"
+                    setTimeOn?.isEnabled = true
                     editTextTimeOn.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
                     Toast.makeText(activity, "Not set time.", Toast.LENGTH_LONG).show()
@@ -84,9 +98,12 @@ class SetTime : Fragment() {
         }
     }
 
-    @SuppressLint("ResourceType")
+
+
     private fun setTimeOffFunc(key: String?) {
         setTimeOff?.setOnClickListener {
+            setTimeOff?.text = "You clicked..."
+            setTimeOff?.isEnabled = false
             editTextTimeOff?.let {
                 val editText = editTextTimeOff.text.toString()
                 if (MoreControl().checkTypeTime(editText)) {
@@ -96,15 +113,15 @@ class SetTime : Fragment() {
                             Toast.makeText(activity, "Success.", Toast.LENGTH_SHORT).show()
                             editTextTimeOff.setText("")
                             editTextTimeOff.onEditorAction(EditorInfo.IME_ACTION_DONE)
-
-                            fragmentManager?.popBackStack()
-                            fragmentManager?.beginTransaction()?.replace(R.layout.fragment_more_option , MoreOption())?.commit()
-
+                            replateFragment(ListOfBulb())
 
 
                         }
                     }
                 } else {
+                    setTimeOff?.text = "Set Time."
+                    setTimeOff?.isEnabled = true
+
                     editTextTimeOff.onEditorAction(EditorInfo.IME_ACTION_DONE)
 
                     Toast.makeText(activity, "Not set time.", Toast.LENGTH_LONG).show()
@@ -130,6 +147,9 @@ class SetTime : Fragment() {
         }
 
     }
+
+    private fun replateFragment(fraClass: Fragment) =
+            fragmentManager?.beginTransaction()?.replace(R.id.frameLayout_bulb, fraClass)?.addToBackStack(null)?.commit()
 
 
 }

@@ -2,6 +2,7 @@ package android.bulbs.sukumandroid.controlbulbswithandroid.bulbs.modules.views
 
 import android.bulbs.sukumandroid.controlbulbswithandroid.R
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -21,10 +22,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        super.onSaveInstanceState(outState, outPersistentState)
+//        mangerFrag.putFragment(outState , "myfragmentname" ,  )
+    }
+
     override fun onStart() {
         super.onStart()
         navBottom()
+
     }
+
     private fun navBottom() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 

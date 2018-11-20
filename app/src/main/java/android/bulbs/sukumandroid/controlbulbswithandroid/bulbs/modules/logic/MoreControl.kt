@@ -4,7 +4,33 @@ import java.util.*
 
 class MoreControl {
 
-    fun getTimeToTimeOut(date: Date) = Date(Date().time + Date().time - date.time).time
+
+    fun setCountDownTimeStart(date: Long , typeTime: String): String {
+        if (date > 0) {
+            var dateSelect = Date(date).time -  Date().time
+            if (dateSelect > 0) {
+                dateSelect /= 1000
+                var dateDouble: Double = dateSelect.toDouble()
+                dateDouble = Math.floor(dateDouble)
+                val wan: Double = Math.floor(dateDouble / 86400)
+                val l_wan: Double = dateDouble % 86400
+                val hour: Double = Math.floor(l_wan / 3600)
+                val l_hour: Double = l_wan % 3600
+                val minute: Double = Math.floor(l_hour / 60)
+                val second: Double = l_hour % 60
+                if (wan == 0.toDouble() && hour == 0.toDouble() && minute == 0.toDouble() && second == 0.toDouble()) {
+                    return "Time left : ${wan.toInt()} วัน ${hour.toInt()}:${minute.toInt()}:${second.toInt()} $typeTime"
+                }
+                return "Time left : ${hour.toInt()}:${minute.toInt()}:${second.toInt()} $typeTime"
+
+
+            } else {
+                return "0 s."
+            }
+
+        }
+        return "0 s"
+    }
 
     fun setTimeStart(date: Long): String {
         if (date > 0) {
