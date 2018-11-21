@@ -29,7 +29,7 @@ class MoreControl {
             }
 
         }
-        return "0 s"
+        return "Set Countdown time."
     }
 
     fun setTimeStart(date: Long): String {
@@ -56,7 +56,7 @@ class MoreControl {
             }
 
         }
-        return "0 s"
+        return "0 s."
     }
     fun checkTypeTime(time: String): Boolean
             = Regex("[0-9]+[s,m,h][.]*").matches(time)

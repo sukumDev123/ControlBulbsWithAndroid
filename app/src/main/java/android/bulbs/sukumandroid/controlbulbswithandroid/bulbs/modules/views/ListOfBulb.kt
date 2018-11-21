@@ -38,6 +38,9 @@ class ListOfBulb : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         showLoading()
+        activity?.let {
+            it.title = "Home Page"
+        }
         adpter = BulbListAdpter()
         bulbRecyclerView?.layoutManager = GridLayoutManager(context, 2)
         bulbRecyclerView?.adapter = adpter

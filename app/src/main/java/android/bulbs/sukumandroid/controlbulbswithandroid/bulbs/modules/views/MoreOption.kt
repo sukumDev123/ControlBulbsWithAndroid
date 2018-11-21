@@ -40,7 +40,9 @@ class MoreOption : Fragment() {
         recyclerViewDetailPage?.layoutManager = LinearLayoutManager(context)
         recyclerViewDetailPage?.adapter = adpter2
         getObserFromFireBase()
-
+        activity?.let {
+            it.title = "Set Countdown time."
+        }
         val kk = BulbsModel("NameBulb", 0, "D0", "", 0, false, false, 0, 0)
         bulbListData = listOf(kk)
 
